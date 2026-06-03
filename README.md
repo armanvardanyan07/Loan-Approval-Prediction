@@ -1,10 +1,10 @@
 # Loan Approval Prediction
 
-A React application for credit application scoring based on the Kaggle [Playground Series S4E10](https://www.kaggle.com/competitions/playground-series-s4e10) loan approval dataset. The app presents a borrower profile form, produces an approval probability, and can connect to a backend prediction endpoint.
+A complete loan approval project based on the Kaggle [Playground Series S4E10](https://www.kaggle.com/competitions/playground-series-s4e10) dataset. The repository includes model development notebooks, competition data, a submission file, and a React scoring interface.
 
 ## Overview
 
-The project connects a tabular machine learning workflow with a product-style scoring interface. It is designed as a practical credit risk workspace rather than a landing page.
+The project connects a tabular machine learning workflow with a product-style scoring interface. It includes both the model research workflow and the web application used to demonstrate predictions.
 
 ## Dataset
 
@@ -35,7 +35,7 @@ Positive class share in the training data: 14.24%.
 
 ## Model Workflow
 
-The notebook workflow uses `CatBoostClassifier`, which is a good fit for this dataset because it can handle categorical and numerical features in a compact pipeline.
+The notebook in `notebooks/loan_approval_model_development.ipynb` uses `CatBoostClassifier`, which is a good fit for this dataset because it can handle categorical and numerical features in a compact pipeline.
 
 Main steps:
 
@@ -45,6 +45,8 @@ Main steps:
 4. Train CatBoost on a `Pool`.
 5. Predict probabilities for the test set.
 6. Create a Kaggle submission file.
+
+The generated submission is stored in `submissions/catboost_submission.csv`.
 
 ## React App
 
@@ -78,11 +80,19 @@ Then open the local URL printed by Vite.
 
 ```text
 .
+├── data
+│   ├── sample_submission.csv
+│   ├── test.csv
+│   └── train.csv
 ├── index.html
+├── notebooks
+│   └── loan_approval_model_development.ipynb
 ├── package.json
 ├── src
 │   ├── App.jsx
 │   ├── main.jsx
 │   └── styles.css
+├── submissions
+│   └── catboost_submission.csv
 └── README.md
 ```
